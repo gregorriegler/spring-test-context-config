@@ -1,6 +1,7 @@
 package com.gregorriegler.springtestcontextconfig;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -38,5 +39,13 @@ class DefaultSpringBootTest {
 	@Test
 	void doesnt_implicitly_load_test_application_properties() {
 		assertThat(nonOverriddenProperty).isEqualTo("default");
+	}
+
+	@Autowired
+	ScannedComponent component;
+
+	@Test
+	void injects_scannedComponent() {
+		assertThat(component).isNotNull();
 	}
 }
