@@ -27,7 +27,11 @@ class MyApplicationTests {
 		assertThat(profileOverriddenProperty).isEqualTo("overridden");
 	}
 
+	@Value("${test.overridden.property}")
+	String testOverriddenProperty;
+
 	@Test
-	void contextLoads() {
+	void overrides_properties_via_test_application_properties() {
+		assertThat(testOverriddenProperty).isEqualTo("overridden by test/resources/application.properties");
 	}
 }
