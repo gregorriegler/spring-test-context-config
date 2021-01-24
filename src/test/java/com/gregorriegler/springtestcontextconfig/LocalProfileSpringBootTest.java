@@ -9,15 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @ActiveProfiles("local")
-class MyApplicationTests {
-
-	@Value("${some.property}")
-	String someProperty;
-
-	@Test
-	void reads_property_from_main_application_properties() {
-		assertThat(someProperty).isEqualTo("default");
-	}
+class LocalProfileSpringBootTest {
 
 	@Value("${profile.overridden.property}")
 	String profileOverriddenProperty;
@@ -25,13 +17,5 @@ class MyApplicationTests {
 	@Test
 	void overrides_properties_via_profile_application_properties() {
 		assertThat(profileOverriddenProperty).isEqualTo("overridden");
-	}
-
-	@Value("${test.overridden.property}")
-	String testOverriddenProperty;
-
-	@Test
-	void overrides_properties_via_test_application_properties() {
-		assertThat(testOverriddenProperty).isEqualTo("overridden by test/resources/application.properties");
 	}
 }
