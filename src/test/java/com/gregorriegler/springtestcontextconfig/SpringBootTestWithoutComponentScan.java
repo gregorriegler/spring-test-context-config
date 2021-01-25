@@ -16,6 +16,10 @@ import org.springframework.test.context.ActiveProfiles;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+/**
+ * Should be similar to
+ * @ContextConfiguration(classes = SpringBootTestWithoutComponentScan.TestConfig.class, initializers = ConfigFileApplicationContextInitializer.class)
+ */
 @ActiveProfiles("test")
 @SpringBootTest(classes = SpringBootTestWithoutComponentScan.TestConfig.class)
 class SpringBootTestWithoutComponentScan {
